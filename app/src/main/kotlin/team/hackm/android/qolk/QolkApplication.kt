@@ -8,5 +8,7 @@ public class QolkApplication : DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
+
+
     }
 }

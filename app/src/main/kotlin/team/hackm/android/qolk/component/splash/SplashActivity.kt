@@ -22,6 +22,7 @@ public class SplashActivity : AppCompatActivity(), WaveHelper.WaveAnimationEvent
 
     val waveView: WaveView by bindView(R.id.splash_waveview)
     var waveHelper: WaveHelper by Delegates.notNull()
+    var isStartedIntent: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,8 +65,11 @@ public class SplashActivity : AppCompatActivity(), WaveHelper.WaveAnimationEvent
 
     override fun onVerticalAnimationEnd() {
         Timber.d("onVerticalAnimationEnd")
-        startActivity(HomeActivity.createIntent(this))
-        finish()
+        if (!isStartedIntent) {
+            startActivity(HomeActivity.createIntent(this))
+            finish()
+            isStartedIntent = true
+        }
     }
 
 }

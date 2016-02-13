@@ -13,13 +13,13 @@ import butterknife.bindView
 import team.hackm.android.qolk.R
 import team.hackm.android.qolk.component.details.DetailsActivity
 import team.hackm.android.qolk.store.realm.LocalStore
+import timber.log.Timber
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
 class HomeFragment : Fragment() {
 
     companion object {
-        val CODE_ADD: Int = 0
         fun createInstance(): Fragment = HomeFragment()
     }
 
@@ -47,14 +47,15 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         listView.adapter = adapter
         listView.setOnItemClickListener { adapterView, view, i, l ->
-            activity.startActivityForResult(DetailsActivity.createIntent(activity, adapter.getItem(i)), CODE_ADD)
+            activity.startActivity(DetailsActivity.createIntent(activity, adapter.getItem(i)))
         }
         getData()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CODE_ADD && resultCode == Activity.RESULT_OK) {
+        Timber.d("onActivityResult")
+        if (requestCode == HomeActivity.CODE_ADD && resultCode == Activity.RESULT_OK) {
             adapter.clear()
             getData()
         }

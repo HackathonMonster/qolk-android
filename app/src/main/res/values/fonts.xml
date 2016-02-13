@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="font_kozmin">fonts/KozMinPr6N-Medium.ttf</string>
+    <string name="font_kozmin_bold">fonts/KozMinPr6N-Bold.ttf</string>
+</resources>

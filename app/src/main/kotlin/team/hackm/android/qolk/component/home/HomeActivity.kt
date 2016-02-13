@@ -14,6 +14,7 @@ import team.hackm.android.qolk.util.setContentFragment
 public class HomeActivity : AppCompatActivity() {
 
     companion object {
+        val CODE_ADD: Int = 0
         public fun createIntent(context: Context) =
                 Intent(context, HomeActivity::class.java)
     }
@@ -27,10 +28,14 @@ public class HomeActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         floatingActionButton.setOnClickListener { view ->
-            startActivity(Intent(AppCompatActivity@this, AddActivity::class.java))
+            startActivityForResult(Intent(AppCompatActivity@this, AddActivity::class.java), CODE_ADD)
         }
 
         setContentFragment(R.id.home_layout_container, HomeFragment.createInstance())
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        supportFragmentManager?.findFragmentById(R.id.home_layout_container)?.onActivityResult(requestCode, resultCode, data)
+    }
 }
