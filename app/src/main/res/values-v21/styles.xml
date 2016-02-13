@@ -13,4 +13,10 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
+
+    <style name="AppTheme.Splash" parent="AppTheme.NoActionBar">
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/accent</item>
+    </style>
+
 </resources>

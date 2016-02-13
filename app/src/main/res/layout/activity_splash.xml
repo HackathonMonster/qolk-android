@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    style="@style/AppTheme.Display"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.gelitenight.waveview.library.WaveView
+        android:id="@+id/splash_waveview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/splash_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/primary"
+        android:textSize="60sp"/>
+
+</RelativeLayout>

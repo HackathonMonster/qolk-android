@@ -32,12 +32,11 @@ class WineAdapter(context: Context) : ArrayAdapter<Wine>(context, R.layout.item_
         }
         val wine = getItem(position)
         viewHolder.apply {
-            wine.image?.let {
-                Glide.with(context)
-                        .load(wine.image)
-                        .asBitmap()
-                        .into(imageView)
-            }
+            Glide.with(context)
+                    .load(wine.image)
+                    .error(R.mipmap.img_add_noimg)
+                    .placeholder(R.mipmap.img_add_noimg)
+                    .into(imageView)
             Timber.d(wine.image)
             nameTextView.text = wine.name
             dateTextView.text = DATE_FORMAT.format(wine.date)

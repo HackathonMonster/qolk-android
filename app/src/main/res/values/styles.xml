@@ -13,6 +13,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark"/>
 
+    <style name="AppTheme.Splash" parent="AppTheme.NoActionBar"/>
+
     <style name="AppTheme.Display">
         <item name="android:background">@color/primary</item>
     </style>

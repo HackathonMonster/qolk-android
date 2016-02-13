@@ -74,6 +74,7 @@ dependencies {
     // UI
     compile 'com.github.flavienlaurent.discrollview:library:0.0.2@aar'
     compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
+    compile project(":waveview")
 }
 
 kapt {
