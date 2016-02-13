@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.ListView
 import butterknife.bindView
 import team.hackm.android.qolk.R
-import team.hackm.android.qolk.component.WineAdapter
+import team.hackm.android.qolk.component.home.WineAdapter
 import team.hackm.android.qolk.component.details.DetailsActivity
 import kotlin.properties.Delegates
 

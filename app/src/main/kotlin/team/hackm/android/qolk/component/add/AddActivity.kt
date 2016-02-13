@@ -18,7 +18,7 @@ public class AddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
         actionBar.hide()
-        toolbar.setTitle(R.string.app_name)
+        toolbar.setTitle(R.string.title_add)
         setContentFragment(R.id.add_layout_container, AddFragment.createInstance())
     }
 }

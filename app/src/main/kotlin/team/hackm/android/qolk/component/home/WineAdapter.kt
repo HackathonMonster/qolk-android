@@ -1,4 +1,4 @@
-package team.hackm.android.qolk.component
+package team.hackm.android.qolk.component.home
 
 import android.content.Context
 import android.view.LayoutInflater
