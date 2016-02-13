@@ -11,15 +11,16 @@ import team.hackm.android.qolk.R
 import team.hackm.android.qolk.component.add.AddActivity
 import team.hackm.android.qolk.util.setContentFragment
 
-class HomeActivity : AppCompatActivity() {
+public class HomeActivity : AppCompatActivity() {
 
+    val toolbar: Toolbar by bindView(R.id.toolbar)
     val floatingActionButton: FloatingActionButton by bindView(R.id.home_fab)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar)
+        actionBar.hide()
+        toolbar.setTitle(R.string.app_name)
 
         floatingActionButton.setOnClickListener { view ->
             startActivity(Intent(AppCompatActivity@this, AddActivity::class.java))

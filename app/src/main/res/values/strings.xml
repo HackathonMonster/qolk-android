@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Qolk</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_add">新規追加</string>
+
+    <!-- Add -->
+    <string name="label_device">デバイスID</string>
+    <string name="label_bottle_name">ボトルの名前</string>
+    <string name="label_bottle_image">ボトルの写真</string>
+    <string name="btn_add">登録する</string>
+
+    <!-- Details -->
+    <string name="label_details">詳細情報</string>
+    <string name="label_advise">アドバイス</string>
+
 </resources>

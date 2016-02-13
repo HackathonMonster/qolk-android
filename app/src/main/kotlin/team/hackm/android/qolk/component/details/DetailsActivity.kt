@@ -10,7 +10,7 @@ public class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-
+        actionBar.hide()
         setContentFragment(R.id.details_layout_container, DetailsFragment.createInstance())
     }
 }

@@ -1,5 +1,6 @@
-package com.hosshan.android.salad.util
+package team.hackm.android.qolk.util
 
+import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
@@ -8,12 +9,14 @@ import android.graphics.Canvas
 import android.graphics.Matrix
 import android.net.Uri
 import android.os.Environment
+import android.provider.MediaStore
 import android.util.Base64
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import kotlin.text.toByteArray
+import java.text.SimpleDateFormat
+import java.util.*
 
 public object ImageUtil {
 
@@ -39,6 +42,30 @@ public object ImageUtil {
         }
         return dirPath
     }
+
+    public fun getPhotoUri(context: Context): Uri {
+        val currentTimeMillis: Long = System.currentTimeMillis()
+        val today: Date = Date(currentTimeMillis)
+        val dateFormat: SimpleDateFormat = SimpleDateFormat("yyyyMMdd_HHmmss")
+        val title: String = dateFormat.format(today)
+        val dirPath: String = getDirPath(context)
+        val fileName: String = "img_capture_${title}.jpg"
+        val path: String = dirPath + "/" + fileName
+        val file: File = File(path)
+
+        val values = ContentValues().apply {
+            put(MediaStore.Images.Media.TITLE, title)
+            put(MediaStore.Images.Media.DISPLAY_NAME, fileName)
+            put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+            put(MediaStore.Images.Media.DATA, path)
+            put(MediaStore.Images.Media.DATE_TAKEN, currentTimeMillis)
+            if (file.exists()) {
+                put(MediaStore.Images.Media.SIZE, file.length())
+            }
+        }
+        return context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+    }
+
 
     public fun resize(bitmap: Bitmap?, parcent: Float): Bitmap? {
         if (bitmap == null || parcent < 0) {

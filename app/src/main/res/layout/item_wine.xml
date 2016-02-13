@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="#444">
+
+    <ImageView
+        android:id="@+id/item_wine_image"
+        android:layout_width="@dimen/wine_image_size"
+        android:layout_height="@dimen/wine_image_size"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <LinearLayout
+        android:id="@+id/item_wine_layout_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/element_spacing_normal"
+        android:layout_toRightOf="@+id/item_wine_image"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_wine_text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+            tools:text="ボジョレーヌーボー2015"
+            />
+
+        <TextView
+            android:id="@+id/item_wine_text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            tools:text="2016/01/03"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

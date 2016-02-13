@@ -1,4 +1,4 @@
-package com.hosshan.android.salad.util
+package team.hackm.android.qolk.util
 
 import com.google.gson.ExclusionStrategy
 import com.google.gson.FieldAttributes

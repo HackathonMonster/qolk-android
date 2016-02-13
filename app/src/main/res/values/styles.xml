@@ -1,11 +1,10 @@
 <resources>
-
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -13,5 +12,16 @@
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.TextView.Label" parent="AppTheme">
+        <item name="android:textColor">@color/primary_text_inverse</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead.Inverse</item>
+        <item name="android:background">@color/accent</item>
+        <item name="android:paddingLeft">@dimen/element_spacing_normal</item>
+        <item name="android:paddingTop">@dimen/element_spacing_small</item>
+        <item name="android:paddingBottom">@dimen/element_spacing_small</item>
+        <item name="android:paddingRight">@dimen/element_spacing_normal</item>
+    </style>
+
 
 </resources>
