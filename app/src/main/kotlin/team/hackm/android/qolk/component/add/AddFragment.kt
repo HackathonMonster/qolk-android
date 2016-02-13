@@ -1,4 +1,4 @@
-package team.hackm.android.qolk.component.home
+package team.hackm.android.qolk.component.add
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,17 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import team.hackm.android.qolk.R
 
-public class HomeFragment : Fragment() {
+public class AddFragment : Fragment() {
 
     companion object {
-        fun createInstance(): Fragment = HomeFragment()
+        fun createInstance(): AddFragment = AddFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_home, container, false)
+        return inflater?.inflate(R.layout.fragment_add, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
 }
