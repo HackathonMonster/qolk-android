@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import com.gelitenight.waveview.library.WaveView
@@ -41,8 +42,9 @@ class WaveHelper(private val mWaveView: WaveView, val eventListener: WaveAnimati
 
         // vertical animation.
         // water level increases from 0 to center of WaveView
-        val waterLevelAnim = ObjectAnimator.ofFloat(mWaveView, "waterLevelRatio", 0f, 1.0f)
-        waterLevelAnim.duration = 3200
+        val waterLevelAnim = ObjectAnimator.ofFloat(mWaveView, "waterLevelRatio", 0f, 1.1f)
+        waterLevelAnim.duration = 3400
+        waterLevelAnim.startDelay = 800
         waterLevelAnim.interpolator = DecelerateInterpolator()
         waterLevelAnim.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animator: Animator?) {
@@ -56,6 +58,7 @@ class WaveHelper(private val mWaveView: WaveView, val eventListener: WaveAnimati
             }
 
             override fun onAnimationStart(animator: Animator?) {
+                mWaveView.visibility = View.VISIBLE
             }
 
         })

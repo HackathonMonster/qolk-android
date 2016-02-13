@@ -14,10 +14,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import butterknife.bindView
 import com.bumptech.glide.Glide
+import com.cookpad.android.rxt4a.schedulers.AndroidSchedulers
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks
 import com.github.ksoichiro.android.observablescrollview.ScrollState
+import rx.Subscriber
+import rx.schedulers.Schedulers
 import team.hackm.android.qolk.R
+import team.hackm.android.qolk.store.qolk.RemoteStore
+import team.hackm.android.qolk.store.qolk.entity.Qolk
 import team.hackm.android.qolk.store.realm.LocalStore
 import team.hackm.android.qolk.store.realm.entity.Wine
 import timber.log.Timber
@@ -58,8 +63,8 @@ class DetailsFragment : Fragment() {
     val textViewTemp: TextView by bindView(R.id.details_text_temperature)
     val textViewAdvise: TextView by bindView(R.id.details_text_advise)
 
-    @Inject
-    lateinit var localStore: LocalStore
+    @Inject lateinit var localStore: LocalStore
+    @Inject lateinit var remoteStore: RemoteStore
     var wine: Wine? = null
 
     override fun onAttach(context: Context?) {
@@ -101,6 +106,26 @@ class DetailsFragment : Fragment() {
                 ensureViewWine(it)
             }
         }
+        remoteStore.getLastData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Subscriber<Qolk>() {
+                    override fun onCompleted() {
+
+                    }
+
+                    override fun onError(error: Throwable?) {
+
+                    }
+
+                    override fun onNext(qolk: Qolk?) {
+                        qolk?.let {
+                            textViewAlcohol.text = getString(R.string.common_percentage, it.alcohol)
+                            textViewHumidity.text = "${it.humidity}%"
+                            textViewTemp.text = "${it.temperature}℃"
+                        }
+                    }
+                })
     }
 
     private fun ensureViewWine(wine: Wine) {
@@ -111,12 +136,12 @@ class DetailsFragment : Fragment() {
                 .into(headerImageView)
         textViewName.text = wine.name
         Timber.d(wine.name)
-        badgeImageView.setImageResource(BADGE_IMAGES[random.nextInt(3)])
+        badgeImageView.setImageResource(BADGE_IMAGES[random.nextInt(2) + 1])
         textViewDate.text = DATE_FORMAT.format(wine.date)
-        textViewAlcohol.text = getString(R.string.common_percentage, random.nextInt(100))
-        textViewHumidity.text = getString(R.string.common_percentage, random.nextInt(100))
-        textViewTemp.text = getString(R.string.common_percentage, random.nextInt(100))
-        textViewAdvise.text = "あなたはワインの管理がゴミのように下手なので\nすぐさま川にワインを捨てるべきです。"
+        textViewAlcohol.text = getString(R.string.common_percentage, random.nextInt(12) + 5)
+        textViewHumidity.text = getString(R.string.common_percentage, random.nextInt(70) + 30)
+        textViewTemp.text = "${random.nextInt(15) + 10}℃"
+        textViewAdvise.text = "あなたのワインはまだ大丈夫です。"
     }
 
 }

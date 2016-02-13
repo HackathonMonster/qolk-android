@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ListView
 import butterknife.bindView
 import team.hackm.android.qolk.R
@@ -49,6 +50,9 @@ class HomeFragment : Fragment() {
         listView.setOnItemClickListener { adapterView, view, i, l ->
             activity.startActivity(DetailsActivity.createIntent(activity, adapter.getItem(i)))
         }
+        /*listView.setOnItemLongClickListener  { adapterView, parent, position, id ->
+            return false
+        }*/
         getData()
     }
 

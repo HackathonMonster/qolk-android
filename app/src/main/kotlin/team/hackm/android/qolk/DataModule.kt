@@ -40,7 +40,7 @@ class DataModule {
     }
 
     @Provides
-    fun provideEndpoint(): Endpoint = Endpoints.newFixedEndpoint("")
+    fun provideEndpoint(): Endpoint = Endpoints.newFixedEndpoint("http://qolk.cloudapp.net")
 
     @Provides
     fun provideGson(): Gson = GsonUtil.getInstance()
