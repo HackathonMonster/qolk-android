@@ -80,11 +80,9 @@ public object FileUtil {
      * @return The value of the _data column, which is typically a file path.
      */
     public fun getDataColumn(context: Context, uri: Uri, selection: String?, selectionArgs: Array<String>?): String? {
-        var cursor: Cursor? = null
         val column = "_data"
         val projection = arrayOf(column)
-        cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-        cursor?.let {
+        context.contentResolver.query(uri, projection, selection, selectionArgs, null)?.let {
             if (it.moveToFirst()) {
                 val column_index = it.getColumnIndexOrThrow(column)
                 return it.getString(column_index)

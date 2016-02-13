@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.f2prateek.rx.preferences.RxSharedPreferences
 import com.google.gson.Gson
-import com.hosshan.android.salad.util.GsonUtil
 import com.squareup.okhttp.OkHttpClient
 import dagger.Module
 import dagger.Provides
@@ -18,14 +17,15 @@ import retrofit.RestAdapter
 import retrofit.client.OkClient
 import retrofit.converter.GsonConverter
 import team.hackm.android.qolk.store.StoreModule
+import team.hackm.android.qolk.util.GsonUtil
 import javax.inject.Named
 
 @Module(includes = arrayOf(StoreModule::class)) // ApiModule::class,
 class DataModule {
 
     companion object {
-        const val PREF_NAME: String = "gitsalad_debug"
-        const val DB_NAME: String = "gitsalad_debug"
+        const val PREF_NAME: String = "qolk_debug"
+        const val DB_NAME: String = "qolk_debug"
         const val DB_VERSION: Long = 0L
     }
 

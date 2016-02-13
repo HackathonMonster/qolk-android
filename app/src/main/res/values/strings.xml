@@ -11,5 +11,10 @@
     <!-- Details -->
     <string name="label_details">詳細情報</string>
     <string name="label_advise">アドバイス</string>
+    <string name="label_date">登録日</string>
+    <string name="label_alcohol">アルコール度数</string>
+    <string name="label_humidity">湿度</string>
+    <string name="label_temperature">温度</string>
+    <string name="common_percentage">%d%%</string>
 
 </resources>

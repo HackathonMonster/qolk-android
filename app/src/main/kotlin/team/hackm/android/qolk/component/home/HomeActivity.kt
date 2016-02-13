@@ -19,8 +19,7 @@ public class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        actionBar.hide()
-        toolbar.setTitle(R.string.app_name)
+        setSupportActionBar(toolbar)
 
         floatingActionButton.setOnClickListener { view ->
             startActivity(Intent(AppCompatActivity@this, AddActivity::class.java))

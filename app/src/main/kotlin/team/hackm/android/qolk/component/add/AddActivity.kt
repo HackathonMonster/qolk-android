@@ -17,8 +17,7 @@ public class AddActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
-        actionBar.hide()
-        toolbar.setTitle(R.string.title_add)
+        setSupportActionBar(toolbar)
         setContentFragment(R.id.add_layout_container, AddFragment.createInstance())
     }
 }

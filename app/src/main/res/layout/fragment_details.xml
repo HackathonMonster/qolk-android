@@ -1,10 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
+    style="@style/AppTheme.Display"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/details_image_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
+
+    <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+        android:id="@+id/details_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            style="@style/AppTheme.Display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/element_spacing_normal"
+                android:paddingLeft="@dimen/element_spacing_large"
+                android:paddingRight="@dimen/element_spacing_large"
+                android:paddingTop="@dimen/element_spacing_normal">
+
+                <TextView
+                    android:id="@+id/details_text_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                    tools:text="Title"/>
+
+                <ImageView
+                    android:id="@+id/details_image_badge"
+                    android:layout_width="@dimen/view_size_xlarge"
+                    android:layout_height="@dimen/view_size_xlarge"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/img_badge_best"/>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/AppTheme.TextView.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_details"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/element_spacing_large"
+                android:paddingLeft="@dimen/element_spacing_large"
+                android:paddingRight="@dimen/element_spacing_large"
+                android:paddingTop="@dimen/element_spacing_large">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_date"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_spacing_normal"
+                        android:text="@string/label_alcohol"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_spacing_normal"
+                        android:text="@string/label_humidity"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_spacing_normal"
+                        android:text="@string/label_temperature"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/element_spacing_large"
+                    android:orientation="vertical"
+                    tools:background="#fff">
+
+                    <TextView
+                        android:id="@+id/details_text_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"
+                        tools:text="aaa"/>
+
+                    <TextView
+                        android:id="@+id/details_text_alcohol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_spacing_normal"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"/>
+
+                    <TextView
+                        android:id="@+id/details_text_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_spacing_normal"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"/>
+
+                    <TextView
+                        android:id="@+id/details_text_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_spacing_normal"
+                        android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/AppTheme.TextView.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_advise"/>
+
+            <TextView
+                android:id="@+id/details_text_advise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/element_spacing_large"
+                android:layout_marginRight="@dimen/element_spacing_large"
+                android:layout_marginTop="@dimen/element_spacing_normal"
+                android:layout_marginBottom="@dimen/element_spacing_large"
+                android:textAppearance="@style/TextAppearance.AppTheme.Medium.Inverse"
+                android:textSize="@dimen/text_size_medium"/>
+
+        </LinearLayout>
+
+    </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
 
 
-</LinearLayout>
+</FrameLayout>

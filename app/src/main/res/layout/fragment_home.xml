@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/element_spacing_large"
-    android:paddingLeft="@dimen/element_spacing_large"
-    android:paddingRight="@dimen/element_spacing_large"
-    android:paddingTop="@dimen/element_spacing_large"
     tools:context=".HomeActivity">
 
     <ListView

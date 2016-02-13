@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import team.hackm.android.qolk.R
-import team.hackm.android.qolk.model.Wine
-import team.hackm.android.qolk.util.loadImageUrl
+import team.hackm.android.qolk.store.realm.entity.Wine
+import timber.log.Timber
 import java.text.SimpleDateFormat
 
 class WineAdapter(context: Context) : ArrayAdapter<Wine>(context, R.layout.item_wine) {
@@ -31,7 +32,13 @@ class WineAdapter(context: Context) : ArrayAdapter<Wine>(context, R.layout.item_
         }
         val wine = getItem(position)
         viewHolder.apply {
-            imageView.loadImageUrl(wine.image)
+            wine.image?.let {
+                Glide.with(context)
+                        .load(wine.image)
+                        .asBitmap()
+                        .into(imageView)
+            }
+            Timber.d(wine.image)
             nameTextView.text = wine.name
             dateTextView.text = DATE_FORMAT.format(wine.date)
         }

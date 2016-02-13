@@ -16,7 +16,11 @@ import android.widget.ImageView
 import butterknife.bindView
 import com.bumptech.glide.Glide
 import team.hackm.android.qolk.R
+import team.hackm.android.qolk.store.realm.LocalStore
+import team.hackm.android.qolk.util.FileUtil
 import team.hackm.android.qolk.util.ImageUtil
+import timber.log.Timber
+import javax.inject.Inject
 
 class AddFragment : Fragment() {
 
@@ -29,7 +33,14 @@ class AddFragment : Fragment() {
     val editBottleName: EditText by bindView(R.id.add_edit_bottle_name)
     val imageView: ImageView by bindView(R.id.add_image)
 
+    @Inject
+    lateinit var localStore: LocalStore
     private var imageUri: Uri? = null
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        AddComponent.Initializer.init(activity).inject(this)
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_add, container, false)
@@ -45,7 +56,9 @@ class AddFragment : Fragment() {
             }, CODE_INTENT_CAMERA)
         }
         view?.findViewById(R.id.add_button)?.setOnClickListener {
-
+            localStore.add(editBottleName.text.toString(), editId.text.toString(), imageUri?.let { FileUtil.getPath(activity, it) })
+            activity.setResult(Activity.RESULT_OK)
+            activity.finish()
         }
     }
 
@@ -53,6 +66,7 @@ class AddFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODE_INTENT_CAMERA) {
             if (resultCode == Activity.RESULT_OK) {
+                imageUri ?: return
                 Glide.with(context)
                         .load(imageUri)
                         .asBitmap()

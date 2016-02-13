@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout style="@style/AppTheme.Display"
+              xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
@@ -18,7 +19,9 @@
         android:layout_marginRight="@dimen/element_spacing_large"
         android:layout_marginTop="@dimen/element_spacing_normal"
         android:background="@drawable/bg_white_frame"
-        android:minHeight="@dimen/view_size_small"/>
+        android:inputType="text"
+        android:minHeight="@dimen/view_size_small"
+        android:textColor="@color/primary_text_inverse"/>
 
     <TextView
         style="@style/AppTheme.TextView.Label"
@@ -35,7 +38,9 @@
         android:layout_marginRight="@dimen/element_spacing_large"
         android:layout_marginTop="@dimen/element_spacing_normal"
         android:background="@drawable/bg_white_frame"
-        android:minHeight="@dimen/view_size_small"/>
+        android:inputType="text"
+        android:minHeight="@dimen/view_size_small"
+        android:textColor="@color/primary_text_inverse"/>
 
     <TextView
         style="@style/AppTheme.TextView.Label"
@@ -55,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_white_frame"
+            android:padding="@dimen/element_spacing_tiny"
             android:scaleType="centerCrop"
             android:src="@mipmap/img_add_noimg"/>
 
@@ -63,6 +69,7 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/element_spacing_tiny"
             android:scaleType="center"
             android:src="@mipmap/img_add_shutter"/>
 

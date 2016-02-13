@@ -25,6 +25,8 @@
 
     <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="wine_image_size">100dp</dimen>
+    <dimen name="wine_image_size">140dp</dimen>
+
+    <dimen name="details_header_height">240dp</dimen>
 
 </resources>
